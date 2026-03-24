@@ -1,5 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HeaderBase from "@/components/HeaderBase.vue";
+import AboutUsView from "@/views/AboutUsView.vue";
+</script>
 
 <template>
-    <h1>Hola</h1>
+    <div class="bg-gradient-to-tl from-primary to-bg text-white min-h-screen">
+        <HeaderBase />
+
+        <div class="mx-40 my-20 text-lg">
+            <AboutUsView />
+        </div>
+    </div>
 </template>
