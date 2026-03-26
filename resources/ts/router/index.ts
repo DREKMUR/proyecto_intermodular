@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { useAuthStore } from '@/stores/auth';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -13,15 +14,37 @@ const router = createRouter({
             path: "/cart",
             name: "cart",
             component: () => import("@/components/Cart.vue"),
-            meta: { title: "Carrito" },
+            meta: { title: "Carrito", requiresAdmin: true },
+        },
+        {
+            path: "/login",
+            name: "login",
+            component: () => import("@/components/auth/Login.vue"),
+            meta: { title: "Login" },
+        },
+        {
+            path: "/register",
+            name: "register",
+            component: () => import("@/components/auth/Register.vue"),
+            meta: { title: "Register" },
         },
     ],
 });
 
-router.beforeEach((to, from) => {
+router.beforeEach((to, _from, next) => {
+    const auth = useAuthStore();
     const baseTitle = "DeMuFe";
-    const pageTitle = to.meta.title as string;
-    document.title = pageTitle ? `${pageTitle} - ${baseTitle}` : baseTitle;
-});
 
+    document.title = to.meta.title ? `${to.meta.title} - ${baseTitle}` : baseTitle;
+
+    if (to.meta.requiresAuth && !auth.isLoggedIn) {
+        return next('/login');
+    }
+
+    if (to.meta.requiresAdmin && !auth.isAdmin) {
+        return next('/');
+    }
+
+    next();
+});
 export default router;
