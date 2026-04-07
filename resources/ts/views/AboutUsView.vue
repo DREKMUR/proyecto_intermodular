@@ -44,7 +44,7 @@ const images = [
 <template>
     <div class="flex gap-40 flex-col text-justify text-xl mx-40">
         <div class="flex gap-10 flex-col justify-center items-center">
-            <h1 class="text-center text-5xl font-extrabold text-secondary">
+            <h1 class="text-center text-5xl font-extrabold">
                 ¡Bienvenido!
             </h1>
 
@@ -66,7 +66,7 @@ const images = [
         </div>
 
         <div class="flex gap-10 flex-col">
-            <h1 class="text-center text-5xl font-extrabold text-secondary">
+            <h1 class="text-center text-5xl font-extrabold">
                     ¿Qué ofrecemos?
             </h1>
 

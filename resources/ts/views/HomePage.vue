@@ -4,7 +4,7 @@ import AboutUsView from "@/views/AboutUsView.vue";
 </script>
 
 <template>
-    <div class="bg-gradient-to-tl from-primary to-bg text-white min-h-screen">
+    <div class="bg-gradient-to-tl from-black to-primary text-white min-h-screen">
         <HeaderBase />
 
         <div class="mx-40 my-20 text-lg">

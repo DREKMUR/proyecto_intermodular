@@ -13,6 +13,12 @@ class User extends Authenticatable
 
     protected $fillable = [
         'name',
+        'birth_date',
+        'phone',
+        'shipping_address',
+        'billing_address',
+        'document_id',
+        'referral_code',
         'email',
         'password',
         'is_admin',
@@ -25,7 +31,8 @@ class User extends Authenticatable
 
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-        'is_admin' => 'boolean',
+        'birth_date'        => 'date',
+        'password'          => 'hashed',
+        'is_admin'          => 'boolean',
     ];
 }

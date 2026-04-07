@@ -13,20 +13,26 @@ const router = createRouter({
         {
             path: "/cart",
             name: "cart",
-            component: () => import("@/components/Cart.vue"),
-            meta: { title: "Carrito", requiresAdmin: true },
+            component: () => import("@/views/Cart.vue"),
+            meta: { title: "Carrito" },
+        },
+        {
+            path: "/catalog",
+            name: "catalog",
+            component: () => import("@/views/Catalog.vue"),
+            meta: { title: "Catálogo" },
         },
         {
             path: "/login",
             name: "login",
             component: () => import("@/components/auth/Login.vue"),
-            meta: { title: "Login" },
+            meta: { title: "Inicio sesión" },
         },
         {
             path: "/register",
             name: "register",
             component: () => import("@/components/auth/Register.vue"),
-            meta: { title: "Register" },
+            meta: { title: "Registro" },
         },
     ],
 });
