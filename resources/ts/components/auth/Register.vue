@@ -156,15 +156,14 @@ const handleSubmit = async (): Promise<void> => {
 </script>
 
 <template>
-    <div class="min-h-screen flex flex-col bg-bg antialiased">
         <HeaderBase />
 
-        <main class="flex-1 flex items-center justify-center p-6 mt-8 mb-8">
-            <div class="w-full max-w-2xl bg-[var(--p-surface-0)] rounded-[var(--p-content-border-radius)] shadow-2xl border border-[var(--p-content-border-color)] overflow-hidden">
+        <div class="flex-1 flex items-center justify-center p-6 mt-8 mb-8 text-slate-700">
+            <div class="w-full max-w-2xl bg-slate-100 rounded shadow-2xl border  overflow-hidden">
                 <div class="p-8 sm:p-10">
                     <div class="text-center mb-8">
-                        <h1 class="text-3xl font-bold text-[var(--p-surface-900)] tracking-tight">Crear Cuenta</h1>
-                        <p class="text-[var(--p-text-muted-color)] mt-2 text-sm">Regístrate para comenzar</p>
+                        <h1 class="text-3xl font-bold text-slate-900">Crear cuenta</h1>
+                        <p class="mt-2 text-sm">Regístrate para comenzar</p>
                     </div>
 
                     <form @submit.prevent="handleSubmit" class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -206,8 +205,8 @@ const handleSubmit = async (): Promise<void> => {
                         />
 
                         <div class="flex items-center gap-2 md:col-span-2 mt-1">
-                            <input type="checkbox" id="sameAddress" v-model="form.same_address" class="w-4 h-4 text-primary bg-[var(--p-surface-50)] border-gray-300 rounded focus:ring-primary">
-                            <label for="sameAddress" class="text-sm text-[var(--p-surface-800)]">La dirección de facturación es la misma que la de envío</label>
+                            <input type="checkbox" id="sameAddress" v-model="form.same_address" class="w-4 h-4  bg-primary border-gray-300 rounded focus:ring-primary">
+                            <label for="sameAddress" class="text-sm ">La dirección de facturación es la misma que la de envío</label>
                         </div>
 
                         <div v-if="!form.same_address" class="md:col-span-2 animate-fade-in">
@@ -235,7 +234,7 @@ const handleSubmit = async (): Promise<void> => {
                             placeholder="AMIGO2026"
                         />
 
-                        <div class="md:col-span-2 border-t border-[var(--p-content-border-color)] pt-4 mt-2">
+                        <div class="md:col-span-2 border-t border-slate-200 pt-4 mt-2">
                             <BaseInput
                                 v-model="form.email"
                                 type="email"
@@ -275,7 +274,7 @@ const handleSubmit = async (): Promise<void> => {
                             required
                         />
 
-                        <div v-if="errorMessage" class="md:col-span-2 flex items-center gap-2 p-3 mt-1 rounded-[var(--p-content-border-radius)] bg-error/10 border border-error/20 text-error text-sm font-medium animate-fade-in">
+                        <div v-if="errorMessage" class="md:col-span-2 flex items-center gap-2 p-3 mt-1 rounded bg-error/10 border border-error/20 text-error text-sm font-medium animate-fade-in">
                             <i class="pi pi-exclamation-circle text-base"></i>
                             <span>{{ errorMessage }}</span>
                         </div>
@@ -283,22 +282,21 @@ const handleSubmit = async (): Promise<void> => {
                         <button
                             type="submit"
                             :disabled="loading"
-                            class="md:col-span-2 w-full py-3 px-4 mt-3 bg-primary hover:bg-primary-hover active:bg-primary-active text-[var(--p-primary-contrast-color)] font-semibold rounded-[var(--p-content-border-radius)] transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-[var(--p-surface-0)]"
+                            class="md:col-span-2 w-full py-3 px-4 mt-3 bg-primary hover:bg-primary-hover active:bg-primary-active text-white font-semibold rounded transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         >
                             <i v-if="loading" class="pi pi-spinner pi-spin"></i>
                             <span>{{ loading ? 'Creando cuenta...' : 'Registrarse' }}</span>
                         </button>
 
                         <div class="md:col-span-2 text-center mt-2">
-                            <router-link :to="{ name: 'login' }" class="text-sm text-primary hover:text-primary-hover font-medium transition-colors">
+                            <router-link :to="{ name: 'login' }" class="text-sm  hover:-hover font-medium transition-colors">
                                 ¿Ya tienes una cuenta? Inicia sesión
                             </router-link>
                         </div>
                     </form>
                 </div>
             </div>
-        </main>
-    </div>
+        </div>
 </template>
 
 <style scoped>
