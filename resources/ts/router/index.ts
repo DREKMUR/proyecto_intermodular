@@ -23,6 +23,19 @@ const router = createRouter({
             meta: { title: "Catálogo" },
         },
         {
+            path: "/contactUs",
+            name: "contactUs",
+            component: () => import("@/views/ContactUs.vue"),
+            meta: { title: "Contáctanos" },
+        },
+        {
+            path: "/listTickets",
+            name: "listTickets",
+            component: () => import("@/views/ListTickets.vue"),
+            meta: { title: "Gestion de Tickets" },
+        },
+        // Sistema de autenticación
+        {
             path: "/login",
             name: "login",
             component: () => import("@/components/auth/Login.vue"),

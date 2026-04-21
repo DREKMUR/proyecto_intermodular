@@ -1,4 +1,5 @@
 export type User = {
+    id: number;
     name: string;
     email: string;
     password: string;
@@ -23,4 +24,6 @@ export interface ApiError {
         };
     };
 }
+
+export type DoubtsFormType = { id?: number, name: string, email: string, productRef: string, description: string };
 

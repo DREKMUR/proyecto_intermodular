@@ -1,6 +1,7 @@
 <template>
     <Button
         unstyled
+        v-bind="$props"
         :pt="theme"
         :ptOptions="{
             mergeProps: ptViewMerge
@@ -9,6 +10,8 @@
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
+
+        <slot />
     </Button>
 </template>
 
@@ -16,6 +19,7 @@
 import Button, { type ButtonPassThroughOptions, type ButtonProps } from 'primevue/button';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
+import 'primeicons/primeicons.css'
 
 interface Props extends /* @vue-ignore */ ButtonProps {}
 defineProps<Props>();
@@ -39,10 +43,9 @@ const theme = ref<ButtonPassThroughOptions>({
         p-text:border-transparent enabled:hover:p-text:border-transparent enabled:active:p-text:border-transparent
         p-text:text-secondary enabled:hover:p-text:text-secondary enabled:active:p-text:text-secondary
     `,
-    loadingIcon: `animate-spin`,
+    loadingIcon: `pi pi-spin pi-spinner mr-2 text-white`,
     icon: `p-right:order-1 p-bottom:order-2`,
-    label: `font-medium p-icon-only:invisible p-icon-only:w-0
-        p-small:text-sm p-large:text-[1.125rem]`,
+    label: `font-medium p-icon-only:invisible p-icon-only:w-0`,
     pcBadge: {
         root: `min-w-4 h-4 leading-4 bg-primary-contrast rounded-full text-primary text-xs font-bold`
     }
