@@ -107,16 +107,6 @@ const images = [
                     Ajustes de motor, suspensión y sonido para que el coche no solo luzca distinto,
                     sino que también se sienta distinto.
                 </div>
-
-                <div>
-                    <strong>
-                        - Proyectos totalmente personalizados
-                    </strong>
-                </div>
-                <div class="my-4">
-                    Cada vehículo se trabaja como una obra individual, adaptada a los gustos y
-                    necesidades del cliente.
-                </div>
             </div>
 
             <p>

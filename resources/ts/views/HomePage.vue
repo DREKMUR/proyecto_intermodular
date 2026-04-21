@@ -4,11 +4,9 @@ import AboutUsView from "@/views/AboutUsView.vue";
 </script>
 
 <template>
-    <div class="bg-gradient-to-tl from-black to-primary text-white min-h-screen">
-        <HeaderBase />
+    <HeaderBase />
 
-        <div class="mx-40 my-20 text-lg">
-            <AboutUsView />
-        </div>
+    <div class="mx-40 my-20 text-lg">
+        <AboutUsView />
     </div>
 </template>
