@@ -2,7 +2,7 @@
 defineProps<{
     modelValue: string;
     label: string;
-    icon: string;
+    icon?: string;
     type?: string;
     placeholder?: string;
     required?: boolean;
