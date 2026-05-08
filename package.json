@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@types/node": "^25.3.0",
+        "lodash.debounce": "^4.0.8",
         "pinia": "^3.0.4",
         "primeicons": "^7.0.0",
         "primevue": "^4.5.4",
