@@ -1,10 +1,10 @@
 export enum CarTypes {
-    Sport = 'Sport',
-    ClassicSport = 'Classical Sport',
+    Sport = 'Deportivo',
+    ClassicSport = 'Deportivo clasico',
     Coupe = 'Coupe',
-    Classic = 'Classic',
+    Classic = 'Clasico',
     Lowrider = 'Lowrider',
-    Compact = 'Compact',
+    Compact = 'Compacto',
     Suv = 'SUV',
 }
 

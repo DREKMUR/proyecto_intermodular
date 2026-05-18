@@ -11,14 +11,12 @@ class Brand extends Model
 
     protected $fillable = [
         'name',
-        'slug',
         'logo',
         'country',
     ];
 
     protected $casts = [
         'name' => 'string',
-        'slug' => 'string',
         'logo' => 'string',
         'country' => 'string',
     ];

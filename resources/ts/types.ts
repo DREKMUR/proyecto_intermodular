@@ -27,11 +27,6 @@ export interface ApiError {
 
 export type DoubtsFormType = { id?: number, name: string, email: string, productRef: string, description: string };
 
-export interface Category {
-    id: number;
-    name: string;
-}
-
 export type Brand = {
     name: string;
     id: number;
@@ -42,17 +37,22 @@ export type State = {
     value: string;
 }
 
+export type Category = {
+    label: string;
+    value: string;
+}
+
 export interface Car {
     id: number;
     name: string;
     brand: string;
-    state: State;
+    state: string;
+    category: string;
     year: number;
     price: number;
     imageRoute: string;
     slug: string;
     description?: string;
-    category?: Category;
 }
 
 export interface PaginatedResponse<T> {

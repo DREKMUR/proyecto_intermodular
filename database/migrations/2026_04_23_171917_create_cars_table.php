@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use \App\Enums\CarStates;
 
 return new class extends Migration
 {
@@ -10,7 +11,6 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('stock')->default(0);
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brands')->cascadeOnDelete();
             $table->string('model');
@@ -18,7 +18,7 @@ return new class extends Migration
             $table->json('specs')->nullable();
             $table->string('name');
             $table->string('category');
-            $table->string('state');
+            $table->string('state')->default(CarStates::Available);
             $table->decimal('price', 10, 2);
             $table->string('imageRoute');
             $table->decimal('discount', 10, 2)->default(0);

@@ -16,12 +16,13 @@ class CarController extends Controller
         $query = Car::query();
 
         $query->when($request->state, fn($q) => $q->where('state', $request->state));
+        $query->when($request->category, fn($q) => $q->where('category', $request->category));
         $query->when($request->name, fn($q) => $q->where('name', 'like', '%' . $request->name . '%'));
         $query->when($request->brand_id, fn($q) => $q->where('brand_id', $request->brand_id));
         $query->when($request->year, fn($q) => $q->where('year', $request->year));
 
-        $perPage = (int) $request->get('per_page', 8);
-        $cars = $query->orderBy('created_at', 'desc')->paginate($perPage)->appends($request->query());
+        $perPage = (int) $request->input('per_page', 8);
+        $cars = $query->orderBy('created_at', 'asc')->paginate($perPage)->appends($request->query());
 
         return response()->json($cars, 200);
     }

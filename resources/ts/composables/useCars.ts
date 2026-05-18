@@ -5,34 +5,34 @@ import type { Car, PaginatedResponse } from '@/types.ts';
 
 export function useCars() {
     const cars = ref<Car[]>([]);
-    const loading = ref(false);
-    const error = ref<string | null>(null);
+    const isLoading = ref(false);
 
     const filters = ref({
         name: '',
         brand: '',
         state: '',
-        year: new Date(),
+        category: '',
+        year: undefined,
         page: 1,
-        per_page: 12,
+        per_page: 8,
     });
 
     const meta = ref({
         current_page: 1,
         last_page: 1,
         total: 0,
-        per_page: 12,
+        per_page: 8,
     });
 
     const fetchCars = async () => {
-        loading.value = true;
-        error.value = null;
+        isLoading.value = true;
         try {
             const params = {
                 name: filters.value.name || undefined,
                 brand_id: filters.value.brand || undefined,
                 state: filters.value.state || undefined,
-                year: filters.value.year ? filters.value.year.getFullYear() : undefined,
+                category: filters.value.category || undefined,
+                year: filters.value.year?.getFullYear() || undefined,
                 page: filters.value.page,
                 per_page: filters.value.per_page,
             };
@@ -43,9 +43,9 @@ export function useCars() {
             meta.value.total = res.data.total;
             meta.value.per_page = res.data.per_page;
         } catch (e: any) {
-            error.value = e?.response?.data?.message ?? e.message ?? 'Error al cargar coches';
+            console.log('Error cargando coches: ', e)
         } finally {
-            loading.value = false;
+            isLoading.value = false;
         }
     };
 
@@ -54,25 +54,37 @@ export function useCars() {
         fetchCars();
     }, 350);
 
-    watch(
-        () => [filters.value.name, filters.value.brand, filters.value.state, filters.value.year],
-        () => {
-            debouncedFetch();
-        }
-    );
-
     const setPage = (page: number) => {
         filters.value.page = page;
         fetchCars();
     };
 
+    const resetFilters = () => {
+        filters.value = {
+            name: '',
+            brand: '',
+            state: '',
+            category: '',
+            year: undefined,
+            page: 1,
+            per_page: 12,
+        };
+    }
+
+    watch(
+        () => [filters.value.name, filters.value.brand, filters.value.state, filters.value.year, filters.value.category],
+        () => {
+            debouncedFetch();
+        }
+    );
+
     return {
         cars,
-        loading,
-        error,
+        isLoading,
         filters,
         meta,
         fetchCars,
         setPage,
+        resetFilters,
     };
 }

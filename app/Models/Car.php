@@ -5,13 +5,11 @@ namespace App\Models;
 use App\Enums\CarStates;
 use App\Enums\CarTypes;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
 
 class Car extends Model
 {
     protected $fillable = [
-        'stock',
         'brand_id',
         'model',
         'year',
@@ -25,13 +23,12 @@ class Car extends Model
     ];
 
     protected $casts = [
-        'stock' => 'integer',
         'brand_id' => 'integer',
         'model' => 'string',
         'year' => 'integer',
         'specs' => 'array',
         'name' => 'string',
-        'type' => CarTypes::class,
+        'category' => CarTypes::class,
         'state' => CarStates::class,
         'price' => 'decimal:2',
         'imageRoute' => 'string',

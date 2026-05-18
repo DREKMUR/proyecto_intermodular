@@ -4,11 +4,11 @@ namespace App\Enums;
 
 enum CarTypes: string
 {
-    case Sport = 'Sport';
-    case ClassicSport = 'Classical Sport';
+    case Sport = 'Deportivo';
+    case ClassicSport = 'Deportivo clasico';
     case Coupe = 'Coupe';
-    case Classic = 'Classic';
+    case Classic = 'Clasico';
     case Lowrider = 'Lowrider';
-    case Compact = 'Compact';
+    case Compact = 'Compacto';
     case Suv = 'SUV';
 }
