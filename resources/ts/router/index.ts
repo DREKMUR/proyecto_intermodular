@@ -23,10 +23,38 @@ const router = createRouter({
             meta: { title: "Catálogo" },
         },
         {
+            path: '/cars/:slug',
+            name: 'car.show',
+            component: () => import("@/views/CarView.vue"),
+            props: route => ({
+                slug: route.params.slug,
+                id: history.state.id
+            }),
+            meta: { title: "Vista de producto" },
+        },
+        {
+            path: "/checkout",
+            name: "checkout",
+            component: () => import("@/views/CheckoutView.vue"),
+            meta: { title: "Pasarela de pago" },
+        },
+        {
             path: "/contactUs",
             name: "contactUs",
             component: () => import("@/views/ContactUs.vue"),
             meta: { title: "Contáctanos" },
+        },
+        {
+            path: "/whereWeAre",
+            name: "whereWeAre",
+            component: () => import("@/views/WhereWeAreView.vue"),
+            meta: { title: "Donde encontrarnos" },
+        },
+        {
+            path: "/FAQ",
+            name: "FAQ",
+            component: () => import("@/views/FAQView.vue"),
+            meta: { title: "Preguntas freqüentes" },
         },
         {
             path: "/listTickets",

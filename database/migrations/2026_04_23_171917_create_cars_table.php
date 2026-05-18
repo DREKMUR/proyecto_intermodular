@@ -15,6 +15,7 @@ return new class extends Migration
             $table->foreign('brand_id')->references('id')->on('brands')->cascadeOnDelete();
             $table->string('model');
             $table->integer('year');
+            $table->integer('stock')->default(1)->nullable();
             $table->json('specs')->nullable();
             $table->string('name');
             $table->string('category');

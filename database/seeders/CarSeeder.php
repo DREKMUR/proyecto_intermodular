@@ -24,7 +24,7 @@ class CarSeeder extends Seeder
                 'name' => 'Nissan Skyline Bosozoku Edition',
                 'category' => CarTypes::ClassicSport,
                 'price' => 45000,
-                'imageRoute' => 'images/bosozoku.avif',
+                'imageRoute' => '/storage/images/bosozoku.avif',
                 'discount' => 0,
             ],
             [
@@ -39,7 +39,7 @@ class CarSeeder extends Seeder
                 'name' => 'Carton Car Special',
                 'category' => CarTypes::Compact,
                 'price' => 50,
-                'imageRoute' => 'images/carton.avif',
+                'imageRoute' => '/storage/images/carton.avif',
                 'discount' => 10,
             ],
             [
@@ -54,8 +54,8 @@ class CarSeeder extends Seeder
                 'name' => 'Chevrolet Corvette C5',
                 'category' => CarTypes::Sport,
                 'price' => 28000,
-                'imageRoute' => 'images/corvette-c5.avif',
-                'discount' => 1500,
+                'imageRoute' => '/storage/images/corvette-c5.avif',
+                'discount' => 0,
             ],
             [
                 'brand_id' => 2,
@@ -69,7 +69,7 @@ class CarSeeder extends Seeder
                 'name' => 'Honda Civic Si',
                 'category' => CarTypes::Coupe,
                 'price' => 12000,
-                'imageRoute' => 'images/honda_civic.avif',
+                'imageRoute' => '/storage/images/honda_civic.avif',
                 'discount' => 0,
             ],
             [
@@ -84,8 +84,8 @@ class CarSeeder extends Seeder
                 'name' => 'Honda Civic Type R EK9',
                 'category' => CarTypes::Compact,
                 'price' => 25000,
-                'imageRoute' => 'images/honda_civic_hatchback.avif',
-                'discount' => 500,
+                'imageRoute' => '/storage/images/honda_civic_hatchback.avif',
+                'discount' => 0,
             ],
             [
                 'brand_id' => 3,
@@ -99,8 +99,8 @@ class CarSeeder extends Seeder
                 'name' => 'Mitsubishi Lancer Evo VI',
                 'category' => CarTypes::Sport,
                 'price' => 42000,
-                'imageRoute' => 'images/lancer.avif',
-                'discount' => 2000,
+                'imageRoute' => '/storage/images/lancer.avif',
+                'discount' => 0,
             ],
             [
                 'brand_id' => 2,
@@ -114,7 +114,7 @@ class CarSeeder extends Seeder
                 'name' => 'Acura/Honda NSX Classic',
                 'category' => CarTypes::ClassicSport,
                 'price' => 85000,
-                'imageRoute' => 'images/nissan-nsx.avif',
+                'imageRoute' => '/storage/images/nissan-nsx.avif',
                 'discount' => 0,
             ],
             [
@@ -129,8 +129,8 @@ class CarSeeder extends Seeder
                 'name' => 'Porsche 911 GT3 RS',
                 'category' => CarTypes::Sport,
                 'price' => 185000,
-                'imageRoute' => 'images/porsche.avif',
-                'discount' => 10000,
+                'imageRoute' => '/storage/images/porsche.avif',
+                'discount' => 0,
             ],
             [
                 'brand_id' => 9,
@@ -144,7 +144,7 @@ class CarSeeder extends Seeder
                 'name' => 'Renault 5 Turbo',
                 'category' => CarTypes::ClassicSport,
                 'price' => 95000,
-                'imageRoute' => 'images/renault.avif',
+                'imageRoute' => '/storage/images/renault.avif',
                 'discount' => 0,
             ],
             [
@@ -159,8 +159,8 @@ class CarSeeder extends Seeder
                 'name' => 'Toyota Supra Fast Edition',
                 'category' => CarTypes::Sport,
                 'price' => 75000,
-                'imageRoute' => 'images/subaru.avif',
-                'discount' => 5000,
+                'imageRoute' => '/storage/images/subaru.avif',
+                'discount' => 0,
             ],
             [
                 'brand_id' => 6,
@@ -174,7 +174,7 @@ class CarSeeder extends Seeder
                 'name' => 'Toyota Supra Silver Carbon',
                 'category' => CarTypes::Sport,
                 'price' => 68000,
-                'imageRoute' => 'images/supra.avif',
+                'imageRoute' => '/storage/images/supra.avif',
                 'discount' => 0,
             ],
             [
@@ -189,8 +189,8 @@ class CarSeeder extends Seeder
                 'name' => 'Cadillac Fleetwood Lowrider',
                 'category' => CarTypes::Lowrider,
                 'price' => 35000,
-                'imageRoute' => 'images/cadillac-firemaker.avif',
-                'discount' => 1200,
+                'imageRoute' => '/storage/images/cadillac-firemaker.avif',
+                'discount' => 0,
             ],
         ];
 

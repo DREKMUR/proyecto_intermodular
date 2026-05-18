@@ -6,6 +6,6 @@ Route::get('/', function () {
     return view('app');
 });
 
-Route::get('/{pathMatch}', function () {
+Route::get('/{any}', function () {
     return view('app');
-})->where('any', '^(?!api).*$');
+})->where('any', '.*');

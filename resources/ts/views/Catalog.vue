@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import {onMounted, ref} from 'vue';
+import axios from "axios";
+
 import { useCars } from '@/composables/useCars';
-import Pagination from '@/components/Pagination.vue';
-import HeaderBase from "@/components/HeaderBase.vue";
+
 import {CarStates, CarTypes} from "@/enums.ts";
+import type {Brand} from "@/types.ts";
+
+import HeaderBase from "@/components/HeaderBase.vue";
 import Select from '@volt/Select.vue';
 import InputText from '@volt/InputText.vue';
 import DatePicker from "@volt/DatePicker.vue";
 import Skeleton from "@volt/Skeleton.vue";
 import Paginator from "@volt/Paginator.vue";
-import type {Brand} from "@/types.ts";
-import axios from "axios";
-import SecondaryButton from "@volt/SecondaryButton.vue";
+import FooterBase from "@/components/FooterBase.vue";
 
 const { cars, isLoading, filters, meta, fetchCars, setPage, resetFilters } = useCars();
 
@@ -52,6 +54,11 @@ const formatPrice = (value: number): string => {
         currency: 'EUR',
         maximumFractionDigits: 2
     }).format(n);
+};
+
+const onFirstChange = (first: number) => {
+    const page = Math.floor(first / meta.value.per_page) + 1;
+    setPage(page);
 };
 
 onMounted(() => {
@@ -147,7 +154,7 @@ onMounted(() => {
             <!-- Productos -->
             <ul v-if="!isLoading" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
                 <li v-for="car in cars" :key="car.id" class="bg-slate-800 rounded-lg shadow-lg overflow-hidden hover:scale-[1.01] transition-transform">
-                    <router-link :to="`/cars/${car.id}`" class="block focus:outline-none focus:ring-4 focus:ring-indigo-500">
+                    <router-link :to="{ name: 'car.show', params: { slug: car.slug }, state: { id: car.id }}" class="block focus:outline-none focus:ring-4 focus:ring-indigo-500">
                         <div class="relative w-full h-44 bg-slate-700">
                             <img
                                 v-if="car.imageRoute"
@@ -158,7 +165,7 @@ onMounted(() => {
                             />
 
                             <span
-                                class="absolute top-2 left-2 bg-indigo-600 bg- text-xs px-2 py-1 rounded text-white/95"
+                                class="absolute top-2 left-2 bg-indigo-600 text-xs px-2 py-1 rounded text-white/95"
                                 :class="{
                                     'bg-rose-600': car.category === CarTypes.Sport,
                                     'bg-green-600': car.category === CarTypes.Suv,
@@ -199,8 +206,6 @@ onMounted(() => {
                                     </div>
                                 </div>
                             </div>
-
-                            <p v-if="car.description" class="mt-3 text-xs text-slate-400 line-clamp-3">{{ car.description }}</p>
                         </div>
                     </router-link>
                 </li>
@@ -209,10 +214,12 @@ onMounted(() => {
             <!-- Paginación -->
             <div v-if="!isLoading && cars.length > 0" class="my-8 flex items-center justify-center">
                 <Paginator
-                    :totalRecords="meta.last_page"
-                    :rows="8"
+                    :totalRecords="meta.total"
+                    :rows="meta.per_page"
+                    :first="(meta.current_page - 1) * meta.per_page"
+                    @update:first="onFirstChange"
                 />
-
             </div>
         </div>
+    <FooterBase />
 </template>

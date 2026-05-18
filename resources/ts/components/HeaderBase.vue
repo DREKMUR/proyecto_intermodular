@@ -38,6 +38,24 @@ const handleLogout = async (): Promise<void> => {
                 Contáctanos
             </RouterLink>
 
+            <RouterLink
+                v-if="$route.name !== 'whereWeAre'"
+                :to="{ name: 'whereWeAre' }"
+                class="hover:bg-slate-200 rounded-sm px-4 py-2 hover:text-secondary-hover transition-all hover:shadow-md"
+            >
+                <i class="pi pi-map"></i>
+                Donde encontrarnos
+            </RouterLink>
+
+            <RouterLink
+                v-if="$route.name !== 'FAQ'"
+                :to="{ name: 'FAQ' }"
+                class="hover:bg-slate-200 rounded-sm px-4 py-2 hover:text-secondary-hover transition-all hover:shadow-md"
+            >
+                <i class="pi pi-question-circle"></i>
+                FAQs
+            </RouterLink>
+
             <RouterLink v-if="$route.name !== 'cart'" :to="{ name: 'cart' }" class="relative inline-block ml-4">
                 <i class="pi pi-shopping-cart hover:scale-125 scale-110 transition-transform cursor-pointer hover:bg-slate-200 p-3 rounded-full hover:text-secondary hover:shadow-md" />
             </RouterLink>

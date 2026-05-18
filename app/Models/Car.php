@@ -6,6 +6,7 @@ use App\Enums\CarStates;
 use App\Enums\CarTypes;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Car extends Model
 {
@@ -20,9 +21,11 @@ class Car extends Model
         'price',
         'imageRoute',
         'discount',
+        'stock'
     ];
 
     protected $casts = [
+        'stock' => 'integer',
         'brand_id' => 'integer',
         'model' => 'string',
         'year' => 'integer',
@@ -35,6 +38,14 @@ class Car extends Model
         'discount' => 'decimal:2',
         'slug' => 'string',
     ];
+
+    /**
+     * Relación: Un coche puede estar en muchos ítems de pedidos.
+     */
+    public function orderItems(): HasMany
+    {
+        return $this->hasMany(OrderItem::class, 'product_id');
+    }
 
     public function __construct(array $attributes = [])
     {

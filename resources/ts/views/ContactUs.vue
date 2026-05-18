@@ -4,6 +4,7 @@ import { ref, computed } from "vue";
 import { useAuthStore } from "@/stores/auth.ts";
 import axios from "axios";
 import type {DoubtsFormType} from "@/types.ts";
+import FooterBase from "@/components/FooterBase.vue";
 
 const authStore = useAuthStore();
 
@@ -267,4 +268,6 @@ function resetForm() {
             </div>
         </Transition>
     </div>
+
+    <FooterBase />
 </template>

@@ -1,18 +1,20 @@
-export type User = {
+export interface User {
     id: number;
     name: string;
+    birth_date: string;
+    phone: number;
+    shipping_address: string;
+    billing_address: string;
+    document_id: string;
+    referral_code: string | null;
     email: string;
-    password: string;
     is_admin: boolean;
+    email_verified_at: string | null;
+    created_at: string;
+    updated_at: string;
 }
 
 export interface LoginForm {
-    email: string;
-    password: string;
-}
-
-export interface RegisterForm {
-    name: string;
     email: string;
     password: string;
 }
@@ -32,27 +34,26 @@ export type Brand = {
     id: number;
 }
 
-export type State = {
-    label: string;
-    value: string;
-}
-
-export type Category = {
-    label: string;
-    value: string;
+interface CarSpecs {
+    engine: string;
+    hp: number;
+    fuel: string;
 }
 
 export interface Car {
     id: number;
     name: string;
     brand: string;
+    model: string;
     state: string;
     category: string;
     year: number;
     price: number;
     imageRoute: string;
     slug: string;
-    description?: string;
+    discount: number;
+    specs: CarSpecs;
+    stock: number;
 }
 
 export interface PaginatedResponse<T> {
@@ -61,4 +62,13 @@ export interface PaginatedResponse<T> {
     last_page: number;
     per_page: number;
     total: number;
+}
+
+export interface CartItem {
+    id: number;
+    name: string;
+    quantity: number;
+    imageRoute: string;
+    price: number;
+    stock: number;
 }
