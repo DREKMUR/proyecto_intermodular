@@ -4,6 +4,7 @@ namespace App\Models;
 use App\Enums\TicketStates;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Ticket extends Model
 {
@@ -23,4 +24,9 @@ class Ticket extends Model
         'product_ref' => 'string',
         'status' => TicketStates::class,
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

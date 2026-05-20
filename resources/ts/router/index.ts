@@ -60,9 +60,20 @@ const router = createRouter({
             path: "/listTickets",
             name: "listTickets",
             component: () => import("@/views/ListTickets.vue"),
-            meta: { title: "Gestion de Tickets" },
+            meta: { title: "Gestion de Tickets", requiresAuth: true },
         },
-        // Sistema de autenticación
+        {
+            path: "/profile",
+            name: "profile",
+            component: () => import("@/views/PerfilCliente.vue"),
+            meta: { title: "Mi Perfil", requiresAuth: true },
+        },
+        {
+            path: "/my-orders",
+            name: "myOrders",
+            component: () => import("@/views/HistorialPedidos.vue"),
+            meta: { title: "Mis Pedidos", requiresAuth: true },
+        },
         {
             path: "/login",
             name: "login",
@@ -74,6 +85,42 @@ const router = createRouter({
             name: "register",
             component: () => import("@/components/auth/Register.vue"),
             meta: { title: "Registro" },
+        },
+        {
+            path: "/admin",
+            name: "admin.dashboard",
+            component: () => import("@/views/admin/AdminDashboard.vue"),
+            meta: { title: "Panel Admin", requiresAuth: true, requiresAdmin: true },
+        },
+        {
+            path: "/admin/products",
+            name: "admin.products",
+            component: () => import("@/views/admin/AdminProducts.vue"),
+            meta: { title: "Productos - Admin", requiresAuth: true, requiresAdmin: true },
+        },
+        {
+            path: "/admin/orders",
+            name: "admin.orders",
+            component: () => import("@/views/admin/AdminOrders.vue"),
+            meta: { title: "Pedidos - Admin", requiresAuth: true, requiresAdmin: true },
+        },
+        {
+            path: "/admin/users",
+            name: "admin.users",
+            component: () => import("@/views/admin/AdminUsers.vue"),
+            meta: { title: "Usuarios - Admin", requiresAuth: true, requiresAdmin: true },
+        },
+        {
+            path: "/admin/tickets",
+            name: "admin.tickets",
+            component: () => import("@/views/admin/AdminTickets.vue"),
+            meta: { title: "Tickets - Admin", requiresAuth: true, requiresAdmin: true },
+        },
+        {
+            path: "/admin/sales",
+            name: "admin.sales",
+            component: () => import("@/views/admin/AdminSalesChart.vue"),
+            meta: { title: "Ventas - Admin", requiresAuth: true, requiresAdmin: true },
         },
     ],
 });

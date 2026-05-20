@@ -6,6 +6,7 @@ use App\Enums\CarStates;
 use App\Enums\CarTypes;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Car extends Model
@@ -39,12 +40,19 @@ class Car extends Model
         'slug' => 'string',
     ];
 
-    /**
-     * Relación: Un coche puede estar en muchos ítems de pedidos.
-     */
+    public function brand(): BelongsTo
+    {
+        return $this->belongsTo(Brand::class);
+    }
+
     public function orderItems(): HasMany
     {
         return $this->hasMany(OrderItem::class, 'product_id');
+    }
+
+    public function opinions(): HasMany
+    {
+        return $this->hasMany(Opinion::class, 'product_id');
     }
 
     public function __construct(array $attributes = [])

@@ -9,7 +9,7 @@
             <!-- Logo / Branding y Copyright -->
             <div class="flex flex-col items-center md:items-start gap-2">
                 <RouterLink :to="{ name: 'home' }">
-                    <img src="/public/images/logo.avif" alt="Logo" class="w-36 hover:scale-105 transition-transform" />
+                    <img src="/public/images/logo.png" alt="Logo" class="w-36 hover:scale-105 transition-transform" />
                 </RouterLink>
                 <p class="text-sm text-slate-100 mt-2 text-center md:text-left">
                     © 2026 DeMuFe®. Todos los derechos reservados.

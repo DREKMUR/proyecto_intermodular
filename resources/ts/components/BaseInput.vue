@@ -7,6 +7,7 @@ defineProps<{
     placeholder?: string;
     required?: boolean;
     minlength?: string;
+    validation?: 'default' | 'valid' | 'invalid';
 }>();
 
 defineEmits<{
@@ -29,7 +30,13 @@ defineEmits<{
                 :required="required"
                 :placeholder="placeholder"
                 :minlength="minlength"
-                class="w-full pl-10 pr-4 py-2.5 focus:bg-slate-200 hover:bg-slate-200 border border-slate-300 rounded text-slate-700/70 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
+                :class="[
+                    'w-full pl-10 pr-4 py-2.5 rounded outline-none transition-all duration-200',
+                    validation === 'valid' ? 'border-green-500 bg-green-50 ring-2 ring-green-500/30' :
+                    validation === 'invalid' ? 'border-red-500 bg-red-50 ring-2 ring-red-500/30' :
+                    'border-slate-300 bg-white hover:bg-slate-100 focus:bg-slate-100 focus:ring-2 focus:ring-primary focus:border-primary',
+                    'text-slate-700 placeholder:text-slate-400'
+                ]"
             />
         </div>
     </div>

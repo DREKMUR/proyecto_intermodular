@@ -12,6 +12,16 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    public function myOrders(Request $request)
+    {
+        $orders = Order::where('user_id', $request->user()->id)
+            ->with(['items.product.brand'])
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return response()->json($orders);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -45,10 +55,11 @@ class OrderController extends Controller
                     }
 
                     $orderItemsData[] = [
-                        'product_id'   => $car->id,
-                        'product_name' => $car->name,
-                        'quantity'     => $cartItem['quantity'],
-                        'price'        => $car->price,
+                        'product_id'     => $car->id,
+                        'product_name'   => $car->name,
+                        'quantity'       => $cartItem['quantity'],
+                        'price'          => $car->price,
+                        'has_to_comment' => true,
                     ];
                 }
 

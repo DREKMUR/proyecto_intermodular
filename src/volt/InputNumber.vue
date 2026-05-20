@@ -33,14 +33,14 @@ const theme = ref<InputNumberPassThroughOptions>({
         p-vertical:flex-col p-fluid:w-full`,
     pcInputText: {
         root: `appearance-none rounded-md outline-hidden flex-auto
-        bg-surface-0
-        p-filled:bg-surface-50
-        text-surface-700
-        placeholder:text-surface-500
-        border border-surface-300
-        enabled:hover:border-surface-400
+        bg-white
+        p-filled:bg-gray-50
+        text-gray-700
+        placeholder:text-gray-400
+        border border-gray-300
+        enabled:hover:border-gray-400
         enabled:focus:border-primary
-        disabled:bg-surface-200 disabled:text-surface-500
+        disabled:bg-gray-200 disabled:text-gray-500
         p-invalid:border-red-400
         p-invalid:placeholder:text-red-600
         px-3 py-2 p-fluid:w-full
@@ -53,9 +53,9 @@ const theme = ref<InputNumberPassThroughOptions>({
     },
     buttonGroup: `p-stacked:flex p-stacked:flex-col p-stacked:absolute p-stacked:top-px p-stacked:end-px p-stacked:h-[calc(100%-2px)] p-stacked:z-10`,
     incrementButton: `flex items-center justify-center grow-0 shrink-0 basis-auto cursor-pointer w-10
-        bg-transparent enabled:hover:bg-surface-100 enabled:active:bg-surface-200
-        border border-surface-300 enabled:hover:border-surface-300 enabled:active:border-surface-300
-        text-surface-400 enabled:hover:text-surface-500 enabled:active:text-surface-600
+        bg-transparent enabled:hover:bg-gray-100 enabled:active:bg-gray-200
+        border border-gray-300 enabled:hover:border-gray-300 enabled:active:border-gray-300
+        text-gray-400 enabled:hover:text-gray-500 enabled:active:text-gray-600
         transition-colors duration-200 disabled:pointer-events-none
         p-stacked:relative p-stacked:flex-auto p-stacked:border-none
         p-stacked:p-0 p-stacked:rounded-tr-[5px]
@@ -63,9 +63,9 @@ const theme = ref<InputNumberPassThroughOptions>({
         p-vertical:py-2 p-vertical:order-1 p-vertical:rounded-ss-md p-vertical:rounded-se-md p-vertical:w-full p-vertical:border-b-0`,
     incrementIcon: ``,
     decrementButton: `flex items-center justify-center grow-0 shrink-0 basis-auto cursor-pointer w-10
-        bg-transparent enabled:hover:bg-surface-100 enabled:active:bg-surface-200
-        border border-surface-300 enabled:hover:border-surface-300 enabled:active:border-surface-300
-        text-surface-400 enabled:hover:text-surface-500 enabled:active:text-surface-600
+        bg-transparent enabled:hover:bg-gray-100 enabled:active:bg-gray-200
+        border border-gray-300 enabled:hover:border-gray-300 enabled:active:border-gray-300
+        text-gray-400 enabled:hover:text-gray-500 enabled:active:text-gray-600
         transition-colors duration-200 disabled:pointer-events-none
         p-stacked:relative p-stacked:flex-auto p-stacked:border-none
         p-stacked:p-0 p-stacked:rounded-br-[5px]

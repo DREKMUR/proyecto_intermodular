@@ -108,6 +108,7 @@ const handlePayment = async () => {
 const finishAndClear = () => {
     cartStore.clearCart();
     cartStore.discountPercent = 0;
+    setTimeout(() => window.dispatchEvent(new CustomEvent('check-pending-opinion')), 1000);
 };
 </script>
 

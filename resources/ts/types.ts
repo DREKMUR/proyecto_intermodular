@@ -32,6 +32,9 @@ export type DoubtsFormType = { id?: number, name: string, email: string, product
 export type Brand = {
     name: string;
     id: number;
+    logo?: string;
+    country?: string;
+    cars_count?: number;
 }
 
 interface CarSpecs {
@@ -71,4 +74,22 @@ export interface CartItem {
     imageRoute: string;
     price: number;
     stock: number;
+}
+
+export interface Opinion {
+    opinionId: string;
+    idUser: number | null;
+    user: string | null;
+    timeStamp: string;
+    rating: number;
+    title: string;
+    opinion: string;
+}
+
+export interface ProductOpinions {
+    idProducte: number;
+    date: string;
+    totalOpinions: number;
+    ratings: number[];
+    opinions: Opinion[];
 }

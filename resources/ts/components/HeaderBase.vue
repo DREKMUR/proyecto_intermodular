@@ -27,7 +27,7 @@ const closeMenu = (): void => {
     <div class="z-50 bg-linear-to-l from-secondary to-black text-white sticky top-0 w-full shadow-xl">
         <div class="flex px-10 font-semibold items-center justify-between py-6">
             <RouterLink :to="{ name: 'home' }" @click="closeMenu">
-                <img src="/public/images/logo.avif" alt="Logo" class="w-40 hover:scale-110 transition-transform" />
+                <img src="/public/images/logo.png" alt="Logo" class="w-40 hover:scale-110 transition-transform" />
             </RouterLink>
 
             <div class="hidden md:flex items-center justify-center gap-5">
@@ -67,21 +67,39 @@ const closeMenu = (): void => {
                     FAQs
                 </RouterLink>
 
-                <RouterLink v-if="$route.name !== 'cart'" :to="{ name: 'cart' }" class="relative inline-block ml-4">
-                    <i class="pi pi-shopping-cart hover:scale-125 scale-110 transition-transform cursor-pointer hover:bg-slate-200 p-3 rounded-full hover:text-secondary hover:shadow-md" />
+                <RouterLink
+                    v-if="$route.name !== 'myOrders' && authStore.isLoggedIn"
+                    :to="{ name: 'myOrders' }"
+                    class="hover:bg-slate-200 rounded-sm px-4 py-2 hover:text-secondary-hover transition-all hover:shadow-md flex items-center gap-1 justify-center"
+                >
+                    <i class="pi pi-inbox"></i>
+                    Mis Pedidos
                 </RouterLink>
 
                 <RouterLink
-                    v-if="$route.name !== 'listTickets' && authStore.isAdmin"
+                    v-if="$route.name !== 'listTickets' && authStore.isLoggedIn"
                     :to="{ name: 'listTickets' }"
                     class="hover:bg-slate-200 rounded-sm px-4 py-2 hover:text-secondary-hover transition-all hover:shadow-md flex items-center gap-1 justify-center"
                 >
                     <i class="pi pi-ticket"></i>
-                    Gestionar Tickets
+                    Mis Tickets
+                </RouterLink>
+
+                <RouterLink
+                    v-if="authStore.isAdmin && $route.path !== '/admin'"
+                    :to="{ name: 'admin.dashboard' }"
+                    class="hover:bg-slate-200 rounded-sm px-4 py-2 hover:text-secondary-hover transition-all hover:shadow-md flex items-center gap-1 justify-center"
+                >
+                    <i class="pi pi-shield"></i>
+                    Panel Admin
                 </RouterLink>
             </div>
 
             <div class="hidden md:flex items-center gap-6">
+                <RouterLink v-if="$route.name !== 'cart'" :to="{ name: 'cart' }" class="relative inline-block">
+                    <i class="pi pi-shopping-cart hover:scale-125 scale-110 transition-transform cursor-pointer hover:bg-slate-200 p-3 rounded-full hover:text-secondary hover:shadow-md" />
+                </RouterLink>
+
                 <template v-if="!authStore.isLoggedIn">
                     <RouterLink
                         v-if="$route.name !== 'login'"
@@ -102,7 +120,12 @@ const closeMenu = (): void => {
 
                 <template v-else>
                     <div class="flex items-center gap-4">
-                        <span class="text-sm font-semibold text-white">Hola, {{ authStore.user?.name }}</span>
+                        <RouterLink
+                            :to="{ name: 'profile' }"
+                            class="hover:bg-slate-200 rounded-sm px-4 py-2 hover:text-secondary-hover transition-all hover:shadow-md text-sm font-semibold"
+                        >
+                            Hola, {{ authStore.user?.name }}
+                        </RouterLink>
 
                         <Button
                             @click="handleLogout"
@@ -172,13 +195,43 @@ const closeMenu = (): void => {
                 </RouterLink>
 
                 <RouterLink
-                    v-if="$route.name !== 'listTickets' && authStore.isAdmin"
+                    v-if="$route.name !== 'profile' && authStore.isLoggedIn"
+                    :to="{ name: 'profile' }"
+                    @click="closeMenu"
+                    class="hover:bg-slate-200 rounded-sm px-4 py-2 hover:text-secondary-hover transition-all flex items-center gap-2"
+                >
+                    <i class="pi pi-user"></i>
+                    Mi Perfil
+                </RouterLink>
+
+                <RouterLink
+                    v-if="$route.name !== 'myOrders' && authStore.isLoggedIn"
+                    :to="{ name: 'myOrders' }"
+                    @click="closeMenu"
+                    class="hover:bg-slate-200 rounded-sm px-4 py-2 hover:text-secondary-hover transition-all flex items-center gap-2"
+                >
+                    <i class="pi pi-inbox"></i>
+                    Mis Pedidos
+                </RouterLink>
+
+                <RouterLink
+                    v-if="$route.name !== 'listTickets' && authStore.isLoggedIn"
                     :to="{ name: 'listTickets' }"
                     @click="closeMenu"
                     class="hover:bg-slate-200 rounded-sm px-4 py-2 hover:text-secondary-hover transition-all flex items-center gap-2"
                 >
                     <i class="pi pi-ticket"></i>
-                    Gestionar Tickets
+                    Mis Tickets
+                </RouterLink>
+
+                <RouterLink
+                    v-if="authStore.isAdmin"
+                    :to="{ name: 'admin.dashboard' }"
+                    @click="closeMenu"
+                    class="hover:bg-slate-200 rounded-sm px-4 py-2 hover:text-secondary-hover transition-all flex items-center gap-2"
+                >
+                    <i class="pi pi-shield"></i>
+                    Panel Admin
                 </RouterLink>
             </div>
 
@@ -207,7 +260,13 @@ const closeMenu = (): void => {
 
                 <template v-else>
                     <div class="flex flex-col items-center gap-4">
-                        <span class="text-sm font-semibold text-white">Hola, {{ authStore.user?.name }}</span>
+                        <RouterLink
+                            :to="{ name: 'profile' }"
+                            @click="closeMenu"
+                            class="hover:bg-slate-200 rounded-sm px-4 py-2 hover:text-secondary-hover transition-all hover:shadow-md font-semibold block text-center"
+                        >
+                            Hola, {{ authStore.user?.name }}
+                        </RouterLink>
 
                         <Button
                             @click="handleLogout"

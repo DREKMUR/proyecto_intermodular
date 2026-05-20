@@ -4,8 +4,13 @@ import axios from 'axios';
 import type {User} from "@/types.ts";
 
 export const useAuthStore = defineStore('auth', () => {
+    const savedToken = localStorage.getItem('auth_token');
     const user = ref<User | null>(JSON.parse(localStorage.getItem('user') ?? 'null'));
-    const token = ref<string | null>(localStorage.getItem('auth_token'));
+    const token = ref<string | null>(savedToken);
+
+    if (savedToken) {
+        axios.defaults.headers.common['Authorization'] = `Bearer ${savedToken}`;
+    }
 
     const isLoggedIn = computed(() => !!token.value);
     const isAdmin = computed(() => user.value?.is_admin === true);

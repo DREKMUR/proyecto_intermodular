@@ -14,11 +14,11 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void {
-        User::factory()->create();
-
         $this->call([
+            UserSeeder::class,
             BrandSeeder::class,
             CarSeeder::class,
+            OpinionSeeder::class,
         ]);
     }
 }

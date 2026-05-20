@@ -24,7 +24,7 @@ const handleSubmit = async (): Promise<void> => {
         await auth.login(form);
 
         if (auth.isAdmin) {
-            await router.push({ name: 'admin-dashboard' });
+            await router.push({ name: 'admin.dashboard' });
         } else {
             await router.push({ name: 'home' });
         }
