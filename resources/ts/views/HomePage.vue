@@ -7,7 +7,7 @@ import FooterBase from "@/components/FooterBase.vue";
 <template>
     <HeaderBase />
 
-    <div class="mx-40 my-20 text-lg">
+    <div class="mx-6 sm:mx-16 lg:mx-40 my-10 md:my-20 text-lg">
         <AboutUsView />
     </div>
 

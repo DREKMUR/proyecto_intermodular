@@ -72,8 +72,6 @@ const handlePayment = async () => {
         }))
     };
 
-    console.log(authStore.token);
-
     try{
         const response = await axios.post('/api/orders', orderData, {
             headers: {
@@ -91,7 +89,7 @@ const handlePayment = async () => {
                 detail: response.data.message || 'Tu pedido ha sido procesado con éxito.',
                 life: 3000
             });
-            cartStore.clearCart();
+            finishAndClear();
         }
     } catch(error: any) {
         console.error('Error procesando el pedido: ' ,error);
@@ -110,7 +108,6 @@ const handlePayment = async () => {
 const finishAndClear = () => {
     cartStore.clearCart();
     cartStore.discountPercent = 0;
-    router.push("/");
 };
 </script>
 
@@ -180,7 +177,7 @@ const finishAndClear = () => {
                     </div>
                 </div>
 
-                <button @click="finishAndClear"
+                <button @click="router.push('/')"
                         class="w-full mt-8 bg-white text-black py-4 rounded-xl font-bold text-lg hover:bg-primary hover:text-white transition-colors uppercase tracking-wider">
                     Volver a la tienda
                 </button>

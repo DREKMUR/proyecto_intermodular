@@ -47,10 +47,10 @@ const faqs = [
 <template>
     <HeaderBase />
 
-    <div class="flex gap-40 flex-col text-justify text-xl mx-40 my-12">
+    <div class="flex gap-16 md:gap-40 flex-col text-justify text-lg md:text-xl mx-6 sm:mx-16 lg:mx-40 my-10 md:my-12">
 
-        <div class="flex gap-10 flex-col justify-center items-center">
-            <h1 class="text-center text-5xl font-extrabold">
+        <div class="flex gap-6 md:gap-10 flex-col justify-center items-center">
+            <h1 class="text-center text-3xl md:text-5xl font-extrabold">
                 Guía de la Web
             </h1>
 
@@ -58,22 +58,22 @@ const faqs = [
                 Bienvenido a la plataforma digital de <strong>DeMuFe®</strong>. Hemos diseñado este espacio para que transformar tu vehículo sea un proceso intuitivo, transparente y completamente personalizado. A continuación, te mostramos cómo funciona nuestra interfaz para sacar el máximo partido a tu experiencia.
             </p>
 
-            <div class="grid grid-cols-2 gap-4 w-full items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 w-full md:items-center">
                 <template v-for="(paso, index) in pasosGuia" :key="index">
                     <div>
                         <strong>
                             {{ paso.titulo }}
                         </strong>
                     </div>
-                    <div class="my-4">
+                    <div class="mb-4 md:my-4">
                         {{ paso.descripcion }}
                     </div>
                 </template>
             </div>
         </div>
 
-        <div class="flex gap-10 flex-col">
-            <h1 class="text-center text-5xl font-extrabold">
+        <div class="flex gap-6 md:gap-10 flex-col">
+            <h1 class="text-center text-3xl md:text-5xl font-extrabold">
                 Preguntas Frecuentes
             </h1>
 
@@ -89,12 +89,12 @@ const faqs = [
                 >
                     <button
                         @click="toggleFaq(index)"
-                        class="w-full flex justify-between items-center text-left font-bold text-2xl py-2 hover:text-secondary-hover hover:cursor-pointer transition-colors focus:outline-none"
+                        class="w-full flex justify-between items-center text-left font-bold text-xl md:text-2xl py-2 hover:text-secondary-hover hover:cursor-pointer transition-colors focus:outline-none"
                     >
                         <span>- {{ faq.pregunta }}</span>
-                        <span class="text-xl ml-4 transform transition-transform duration-200" :class="{ '-rotate-30': activeFaq === index }">
-              {{ activeFaq === index ? '▲' : '▼' }}
-            </span>
+                        <span class="text-xl ml-4 transform transition-transform duration-200 shrink-0" :class="{ '-rotate-30': activeFaq === index }">
+                            {{ activeFaq === index ? '▲' : '▼' }}
+                        </span>
                     </button>
 
                     <div

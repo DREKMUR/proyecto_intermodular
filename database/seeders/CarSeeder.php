@@ -13,6 +13,7 @@ class CarSeeder extends Seeder
     {
         $cars = [
             [
+                'stock' => 10,
                 'brand_id' => 7,
                 'model' => 'Skyline KGC10 "Bosozoku"',
                 'year' => 1972,
@@ -28,6 +29,7 @@ class CarSeeder extends Seeder
                 'discount' => 0,
             ],
             [
+                'stock' => 10,
                 'brand_id' => 1,
                 'model' => 'DIY Cardboard',
                 'year' => 2024,
@@ -43,6 +45,7 @@ class CarSeeder extends Seeder
                 'discount' => 10,
             ],
             [
+                'stock' => 1,
                 'brand_id' => 8,
                 'model' => 'Corvette C5',
                 'year' => 2002,
@@ -58,6 +61,7 @@ class CarSeeder extends Seeder
                 'discount' => 0,
             ],
             [
+                'stock' => 3,
                 'brand_id' => 2,
                 'model' => 'Civic Coupe',
                 'year' => 1998,
@@ -73,6 +77,7 @@ class CarSeeder extends Seeder
                 'discount' => 0,
             ],
             [
+                'stock' => 15,
                 'brand_id' => 2,
                 'model' => 'Civic Hatchback Type R',
                 'year' => 2000,
@@ -88,6 +93,7 @@ class CarSeeder extends Seeder
                 'discount' => 0,
             ],
             [
+                'stock' => 4,
                 'brand_id' => 3,
                 'model' => 'Lancer Evolution VI',
                 'year' => 1999,
@@ -103,6 +109,7 @@ class CarSeeder extends Seeder
                 'discount' => 0,
             ],
             [
+                'stock' => 5,
                 'brand_id' => 2,
                 'model' => 'NSX',
                 'year' => 1990,
@@ -118,6 +125,7 @@ class CarSeeder extends Seeder
                 'discount' => 0,
             ],
             [
+                'stock' => 10,
                 'brand_id' => 4,
                 'model' => '911 GT3',
                 'year' => 2018,
@@ -133,6 +141,7 @@ class CarSeeder extends Seeder
                 'discount' => 0,
             ],
             [
+                'stock' => 14,
                 'brand_id' => 9,
                 'model' => '5 Turbo',
                 'year' => 1980,
@@ -148,6 +157,7 @@ class CarSeeder extends Seeder
                 'discount' => 0,
             ],
             [
+                'stock' => 3,
                 'brand_id' => 6,
                 'model' => 'Supra A80 Orange',
                 'year' => 1994,
@@ -163,6 +173,7 @@ class CarSeeder extends Seeder
                 'discount' => 0,
             ],
             [
+                'stock' => 5,
                 'brand_id' => 6,
                 'model' => 'Supra A80',
                 'year' => 1998,
@@ -178,6 +189,7 @@ class CarSeeder extends Seeder
                 'discount' => 0,
             ],
             [
+                'stock' => 8,
                 'brand_id' => 10,
                 'model' => 'Fleetwood "Firemaker"',
                 'year' => 1975,

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="{{ asset('images/logo.png') }}">
+    <link rel="icon" href="{{ asset('images/logo.avif') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeMuFe</title>
     @vite(['resources/ts/main.ts', 'resources/css/main.css'])

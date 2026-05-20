@@ -3,48 +3,37 @@ import Galleria from 'primevue/galleria';
 
 const images = [
     {
-        itemImageSrc: '/images/honda_civic.png',
-        alt: 'Honda Civic',
-        title: 'Honda Civic'
+        itemImageSrc: '/images/bosozoku.avif',
+        alt: 'Nissan Bosozoku',
+        title: 'Nissan Bosozoku'
     },
     {
-        itemImageSrc: '/images/lancer.png',
+        itemImageSrc: '/images/honda_civic_hatchback.avif',
+        alt: 'Honda Civic Hatchback',
+        title: 'Honda Civic Hatchback'
+    },
+    {
+        itemImageSrc: '/images/lancer.avif',
         alt: 'Mitsubishi Lancer Evolution',
         title: 'Mitsubishi Lancer Evolution'
     },
     {
-        itemImageSrc: '/images/nose.png',
-        alt: 'Nose',
-        title: 'Nose'
-    },
-    {
-        itemImageSrc: '/images/subaru.png',
-        alt: 'Subaru',
-        title: 'Subaru'
-    },
-    {
-        itemImageSrc: '/images/coche_rojo.png',
-        alt: 'Coche Rojo',
-        title: 'Coche Rojo'
-    },
-    {
-        itemImageSrc: '/images/carton.png',
-        alt: 'Coche cartón',
-        title: 'Coche cartón'
-    },
-    {
-        itemImageSrc: '/images/porsche.png',
+        itemImageSrc: '/images/porsche.avif',
         alt: 'Porsche',
         title: 'Porsche'
     },
+    {
+        itemImageSrc: '/images/cadillac-firemaker.avif',
+        alt: 'Cadillac Firemaker',
+        title: 'Cadillac Firemaker'
+    },
 ]
-
 </script>
 
 <template>
-    <div class="flex gap-40 flex-col text-justify text-xl mx-40">
-        <div class="flex gap-10 flex-col justify-center items-center">
-            <h1 class="text-center text-5xl font-extrabold">
+    <div class="flex gap-16 md:gap-40 flex-col text-justify text-lg md:text-xl mx-6 sm:mx-16 lg:mx-40 my-10">
+        <div class="flex gap-6 md:gap-10 flex-col justify-center items-center">
+            <h1 class="text-center text-3xl md:text-5xl font-extrabold">
                 ¡Bienvenido!
             </h1>
 
@@ -55,19 +44,21 @@ const images = [
                 pasen a ser unicos en el mundo.
             </p>
 
-            <Galleria :value="images" containerStyle="max-width: 100vh" :showThumbnails="false" circular showItemNavigators showItemNavigatorsOnHover>
-                <template #item="slotProps">
-                    <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt"/>
-                </template>
-                <template #thumbnail="slotProps">
-                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
-                </template>
-            </Galleria>
+            <div class="w-full flex justify-center">
+                <Galleria :value="images" containerStyle="max-width: 100%" :showThumbnails="false" circular showItemNavigators showItemNavigatorsOnHover>
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" class="w-full h-auto object-cover rounded-lg max-h-[500px]" />
+                    </template>
+                    <template #thumbnail="slotProps">
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
+                    </template>
+                </Galleria>
+            </div>
         </div>
 
-        <div class="flex gap-10 flex-col">
-            <h1 class="text-center text-5xl font-extrabold">
-                    ¿Qué ofrecemos?
+        <div class="flex gap-6 md:gap-10 flex-col">
+            <h1 class="text-center text-3xl md:text-5xl font-extrabold">
+                ¿Qué ofrecemos?
             </h1>
 
             <p>
@@ -77,23 +68,23 @@ const images = [
                 su esencia pero potenciando cada detalle.
             </p>
 
-            <div class="grid grid-cols-2 gap-4 w-full items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 w-full items-center">
                 <div>
                     <strong>
                         - Diseño exterior personalizado
                     </strong>
                 </div>
-                <div class="my-4">
+                <div class="mb-4 md:my-4">
                     Kits aerodinámicos, llantas exclusivas y acabados premium que transforman
                     la presencia del vehículo.
                 </div>
 
                 <div>
                     <strong>
-                    - Interiores a medida
+                        - Interiores a medida
                     </strong>
                 </div>
-                <div class="my-4">
+                <div class="mb-4 md:my-4">
                     Materiales de alta calidad, combinaciones únicas y un estilo que refleja
                     la identidad del conductor.
                 </div>
@@ -103,7 +94,7 @@ const images = [
                         - Mejoras de rendimiento
                     </strong>
                 </div>
-                <div class="my-4">
+                <div class="mb-4 md:my-4">
                     Ajustes de motor, suspensión y sonido para que el coche no solo luzca distinto,
                     sino que también se sienta distinto.
                 </div>

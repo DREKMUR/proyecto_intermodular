@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\CarStates;
 use App\Http\Controllers\Controller;
 use App\Models\Car;
 use App\Models\Order;
@@ -38,6 +39,10 @@ class OrderController extends Controller
                     $subtotal += $itemSubtotal;
 
                     $car->decrement('stock', $cartItem['quantity']);
+
+                    if ($car->stock < 1) {
+                        $car->update(['state' => CarStates::Sold]);
+                    }
 
                     $orderItemsData[] = [
                         'product_id'   => $car->id,

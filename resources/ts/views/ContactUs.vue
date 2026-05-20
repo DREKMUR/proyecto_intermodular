@@ -85,8 +85,8 @@ function resetForm() {
 <template>
     <HeaderBase />
 
-    <div class="flex flex-col gap-10 text-center mx-40 my-20 text-lg">
-        <h1 class="text-4xl font-bold">¡Contáctanos!</h1>
+    <div class="flex flex-col gap-6 md:gap-10 text-center mx-6 sm:mx-16 lg:mx-40 my-10 md:my-20 text-base md:text-lg">
+        <h1 class="text-3xl md:text-4xl font-bold">¡Contáctanos!</h1>
         <p>
             Si tienes cualquier duda o problema, no olvides que puedes contactar con nosotros
             mediante el siguiente formulario.
@@ -94,7 +94,7 @@ function resetForm() {
 
         <div
             v-if="!submitted"
-            class="bg-white rounded-2xl shadow-sm border border-slate-100 p-10 text-left text-black"
+            class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-10 text-left text-black"
         >
             <div v-if="showErrors && !isFormValid" class="mb-6 p-4 bg-rose-50 border border-rose-200 rounded-xl text-rose-700 text-sm flex items-center gap-2">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
@@ -219,7 +219,7 @@ function resetForm() {
                     <button
                         @click="handleSubmit"
                         :disabled="isSubmitting"
-                        class="flex items-center gap-3 px-8 py-3.5 bg-primary text-white font-semibold rounded-xl text-base hover:bg-primary-hover transition-all duration-200 hover:cursor-pointer disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+                        class="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-3.5 bg-primary text-white font-semibold rounded-xl text-base hover:bg-primary-hover transition-all duration-200 hover:cursor-pointer disabled:cursor-not-allowed shadow-md hover:shadow-lg"
                     >
                         <svg
                             v-if="isSubmitting"
@@ -244,7 +244,7 @@ function resetForm() {
         >
             <div
                 v-if="submitted"
-                class="bg-white rounded-2xl shadow-sm border border-emerald-100 p-12 flex flex-col items-center gap-6"
+                class="bg-white rounded-2xl shadow-sm border border-emerald-100 p-6 md:p-12 flex flex-col items-center gap-6"
             >
                 <div class="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center">
                     <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
